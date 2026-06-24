@@ -264,10 +264,10 @@
         .movies-grid {
             display: flex;
             justify-content: center;
-            flex-wrap: wrap;
+            flex-wrap: nowrap; /* Changed to nowrap to force side-by-side */
             gap: 16px;
             width: 100%;
-            max-width: 400px;
+            max-width: 480px; /* Increased to allow more space if needed */
         }
 
         /* ===== MOVIE CARD ===== */
@@ -276,7 +276,7 @@
             border-radius: 16px;
             overflow: hidden;
             cursor: pointer;
-            width: 240px;
+            width: calc(50% - 8px); /* Take exactly half width minus gap */
             aspect-ratio: 2/3;
             background: #111;
             animation: fadeScaleUp 0.8s ease-out forwards;
@@ -452,8 +452,8 @@
             .movies-grid {
                 gap: 12px;
             }
-            .movie-card:nth-child(3):last-child {
-                width: calc(50% - 6px); /* gap de 12px / 2 = 6px */
+            .movie-card {
+                width: calc(50% - 6px); /* Ajuste para gap de 12px */
             }
 
             .logo-placeholder {
@@ -479,8 +479,8 @@
                 max-width: 440px;
                 gap: 22px;
             }
-            .movie-card:nth-child(3):last-child {
-                width: calc(50% - 11px); /* gap de 22px / 2 = 11px */
+            .movie-card {
+                width: calc(50% - 11px); /* Ajuste para gap de 22px */
             }
 
             .logo-placeholder {
@@ -523,7 +523,7 @@
         <div class="movies-grid">
             <!-- FILME 1 -->
             <a href="#" class="movie-card" id="movie-1" onclick="selectMovie(1, event)">
-                <img src="img/A Vida Dupla da Herdeira Bilionaria.webp" alt="A Vida Dupla da Herdeira Bilionária" loading="lazy">
+                <img src="img/O REI DA PRISÃO DISFARCADO.webp" alt="O Rei da Prisão Disfarçado" loading="lazy">
                 <div class="play-icon">
                     <svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg>
                 </div>
@@ -531,7 +531,7 @@
             
             <!-- FILME 2 -->
             <a href="#" class="movie-card" id="movie-2" onclick="selectMovie(2, event)">
-                <img src="img/O Retorno do Atacante Perdido.webp" alt="O Retorno Do Atacante Perdido" loading="lazy">
+                <img src="img/Mãe Solteira em Fuga Segura em Seus Braços.webp" alt="Mãe Solteira em Fuga Segura em Seus Braços" loading="lazy">
                 <div class="play-icon">
                     <svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg>
                 </div>
@@ -577,8 +577,8 @@
         // ===== MOVIE SELECTION =====
         // Configure os links dos filmes aqui:
         const movieLinks = {
-            1: 'https://dramatime.site/avida/', // Link para: A Vida Dupla da Herdeira Bilionaria
-            2: 'https://dramatime.site/oretorno/', // Link para: O Retorno do Atacante Perdido
+            1: 'https://dramatime.site/orei/', // Link para: O Rei da Prisão Disfarçado
+            2: 'https://dramatime.site/amae/', // Link para: Mãe Solteira em Fuga Segura em Seus Braços
         };
 
         function selectMovie(id, event) {
